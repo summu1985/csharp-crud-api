@@ -13,7 +13,8 @@ builder.Services.AddSwaggerGen();
 // Added configuration for PostgreSQL
 var configuration = builder.Configuration;
 builder.Services.AddDbContext<UserContext>(options =>
-    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+    //options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
+    options.UseNpgsql(configuration.GetConnectionString("Database:ConnectionString")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
