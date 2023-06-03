@@ -14,7 +14,7 @@ builder.Services.AddSwaggerGen();
 var configuration = builder.Configuration;
 builder.Services.AddDbContext<UserContext>(options =>
     //options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
-    options.UseNpgsql(configuration.GetConnectionString("Database:ConnectionString")));
+    options.UseNpgsql(configuration.GetValue<String>("DefaultConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
